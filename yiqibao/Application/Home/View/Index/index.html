@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<link rel="stylesheet" type="text/css" href="Application/Home/View/Index/bootstrap/css/bootstrap.min.css"/>-->
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/slide.css"/>
+		<link rel="stylesheet" href="__PUBLIC__/css/style.css">
+		<script src="__PUBLIC__/js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__PUBLIC__/icon/iconfont.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__PUBLIC__/js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://libs.baidu.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<!--<script type="text/javascript" src="dummy-images/jquery-1.5.1.min.js"></script>-->
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.orbit-1.2.3.min.js"></script>
+		<style type="text/css">
+			/*@media (min-width: 992px) {
+				.col-md-6{
+                    background-color:#E6E2EB;
+                }
+			}*/
+			 .icon {
+	          /* 通过设置 font-size 来改变图标大小 */
+	          width: 1em; height: 1em;
+	          /* 图标和文字相邻时，垂直对齐 */
+	          vertical-align: -0.15em;
+	          /* 通过设置 color 来改变 SVG 的颜色/fill */
+	          fill: currentColor;
+	          /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+	             normalize.css 中也包含这行 */
+	          overflow: hidden;
+	        }
+	        .cls{clear: both;}
+			/*公共头部*/
+			.nav-top{width: 100%;height: 30px;background: #D7D7D7;display: block;}
+			.nav-left{line-height: 30px;padding-left: 20px;width: 200px;float: left;}
+			.nav-right{width: 600px;height: 30px;float: right;display: block;}
+			.nav-right-select select{height: 29px;float: left;/*width: 100px;*/}
+			.nav-right-item{float:left;padding: 0px 20px;border-right: 1px solid #804D33;height: 20px;margin-top: 5px;}
+			.top-show{width: 80%;margin: 0 auto;}
+			.search{float: right;width: 700px;height: 40px;margin: 20px 0px;}
+			.top-show-sel{width:15%;float: left;}
+			.top-show-txt{width: 55%;float: left;}
+			.hc-pl{width: 100%; margin-top: 100px;}
+			.page-footer{width: 100%;height: 60px;background: black;color: white;text-align: center;line-height: 60px;font-size: 16px;}
+			
+			/*路演区块*/
+			/*图片简介区块*/
+			.main-top{width: 80%;overflow: hidden;margin: 0 auto;margin-top: 30px;}
+			.show-pic-tle .btn-primary{float: left;}
+			.show-pic-tle span{margin-left: 20px;color: #169BD5;float: left;line-height: 30px;}			
+			.show-pic-tle .show-pic-time{float: right;}
+			.show-pic{width: 50%;height: 270px;float: left;}
+			.show-pic-words{width: 50%;height: 270px;border: 1px solid #797979;float: left;border-radius: 5px;}
+			.show-pic-par{width: 100%;overflow: hidden;}
+			.show-pic-words .row{margin: 30px 30px 0px 30px;}
+			.show-pic-words .col-md-6{height: 40px;}
+			.show-pic-words .row{font-size: 16px;}
+			.words-bot{width: 400px;margin-left: 200px;}
+			.words-bot div{margin-left: 20px;float:left;}
+			.words-bot .icons{font-size: 20px;}
+			svg{cursor: pointer;}
+			/*项目概要*/
+			/*.road-show-outline{margin-top: 80px;overflow: hidden;}*/
+			.show-outline-left{height: 270px;border: 1px solid #797979;width: 50%;float: left;border-radius: 5px;background:url('__PUBLIC__/images/luyan_detail_3.jpg') ;background-size: 100%;}
+			.show-outline-right{height: 270px;width: 50%;background: #F2F2F2;float: left;}
+			.show-outline-tle{width: 100%;padding: 10px 5px;font-size: 18px;color:#169BD5;font-weight: 700;}
+			.par-words{padding: 50px 20px;text-indent: 30px;font-size: 16px;color: #888888;}
+			/*项目文件*/
+			/*.road-show-file{width: 100%; margin-top: 100px;overflow: hidden;}*/
+			.show-file-tle{width: 100%;padding: 10px 5px;font-size: 18px;color:#169BD5;font-weight: 700;}
+			.file-items{height: 30px;width: 33%;float: left;line-height: 30px;padding: 5px;font-size: 16px;}
+			.file-items a{text-decoration: none;}
+			.file-items .icon{font-size: 24px;padding: 5px;line-height: 30px;}
+			/*现场踏勘*/
+			.show-scouting-tle{width: 80%;margin: 0 auto;padding: 10px 5px;font-size: 18px;color:#169BD5;font-weight: 700;}
+			
+			/*下部分*/
+			/*在线答疑*/
+			.main-bot{width: 80%;margin: 50px auto;overflow: hidden;}
+			.show-answer-left{width: 70%;float: left;background: #F2F3F3;}
+			.show-answer-left span{width: 100%;padding-left:5px;}
+			.show-answer-right{width: 30%;float: left;}
+			.show-answer-left select{float: left;width: 30%;}
+			.show-answer-left input{width: 60%;float: left;}
+			.show-answer-left button{width: 10%;float: left;}
+			.show-answer-right{width:30%;height: 350px;float: left;}
+			.answer-right-tle{padding-left: 100px;font-size: 20px;}
+			.answer-right-tle span{font-size: 16px;padding: 5px;}
+			.answer-right-tle div{font-size: 20px;padding: 10px 0px;}
+			.answer-right-content a{width: 100%;float: left;padding-left: 100px;font-size: 16px;}
+			
+			/*项目专家团*/
+			.road-show-expert{width: 100%;overflow: hidden;}
+			.road-show-expert .items{width: 16%;float: left;margin: 2%;}
+			.road-show-expert .items img{width: 100%;float: left;height: 154px;}
+			.road-show-expert .items span{text-align: center;float: left;width: 100%;}
+			.road-show-expert .items div{width: 100%;border: 1px solid #CCCCCC;float: left;padding: 10px auto;text-indent: 20px;}
+			/*相关路演*/
+			.road-show-orders .orders-item{width: 23%;margin:1%;float: left;}
+			.road-show-orders .orders-item img{width: 100%;}
+			.index-pic-content img{width: 100%;max-height: 380px;width: 960px;}
+			.orders-item img{height: 170px;}
+			
+			.img-responsive{width: 100%;height: 200px;}
+			.more-kc{position: absolute;bottom: -30px;right: 100px;}
+		</style>
+	</head>
+	<body>
+		<!--公共头部-->
+		<div class="nav-top">
+			<div class="nav-left">
+				欢迎来到一起包工程网	
+			</div>
+			<div class="nav-right">
+				<div class="nav-right-select">
+				<!--	<select class="form-control"  >
+						<option value="chinese">chinese</option>
+						<option value="english">english</option>
+					</select>-->	
+					<select name="">
+						<option value="chinese">chinese</option>
+						<option value="english">english</option>
+					</select>
+				</div>
+				<div class="nav-right-item" >欢迎<span style="color: red;" >韩**</span></div>
+				<div class="nav-right-item" >用户注册</div>
+				<div class="nav-right-item" >找回密码</div>
+				<div class="nav-right-item" >在线咨询</div>
+				<div class="nav-right-item" >
+					<svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xin"></use>
+                    </svg>
+					<span style="color: red;" >14</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="top-show">
+			<a href="http://www.epcchance.com/"><img src="__PUBLIC__/images/logo.png" alt="" class="img-rounded"></a>
+			<!--<a href="{:U('index/index')}"><img src="__PUBLIC__/images/logo1.jpg"/></a>-->
+			<div class="search">
+				<select class="form-control top-show-sel" >
+					<option value="">项目</option>
+					<option value="">招标</option>
+					<option value="">采购</option>
+					<option value="">服务</option>
+				</select>
+				<input type="text" id="inputHelpBlock" class="form-control top-show-txt" aria-describedby="helpBlock"  >
+				<button type="button" class="btn btn-warning" style="width: 12%;float: left;" >立即搜索</button>
+				<button type="button" class="btn btn-danger" style="width: 15%;float: left;margin-left: 1%;" >我要发布项目</button>
+			</div>
+		</div>
+		<!--公共头部结束-->
+		
+		<!--路演信息-->
+		<div class="main-top">
+			<!--图片简介-->
+			<div class="road-show-pic">
+				<div class="show-pic-tle" >
+					<div  class="btn btn-primary">项目路演--孟加拉吉大港融资路演</div>
+					<span>预约中</span>
+					<!--<span>进行中</span>-->
+					<!--<span>已结束</span>-->
+					<div class="show-pic-time">
+						路演时间：2017-8-24 15:30-18:00
+					</div>
+				</div>
+				<div class="show-pic-par">
+					<div class="show-pic">
+						<img src="__PUBLIC__/images/luyan_detail_2.jpg" alt="..." class="img-thumbnail">
+					</div>
+					<div class="show-pic-words container-fluid">
+						<div class="row">
+						  <div class="col-md-6">项目所在地:印度尼西亚</div>
+						  <div class="col-md-6">项目金额:4000万RMB</div>
+						  <div class="col-md-6">项目模式：BOT项目</div>
+						  <div class="col-md-6">融资金额：2000万RMB</div>
+						  <div class="col-md-6">项目类型：光伏发电</div>
+						  <div class="col-md-6">资金来源：高新创投</div>
+						  <div class="col-md-6">IRR预计内部收益率：25%</div>
+						  <div class="col-md-6">业主描述：印尼最大民营企业</div>
+						  <div class="col-md-6">目前状态：等待融资关闭</div>
+						  <div class="col-md-6">PPA电价：0.09美元</div>
+						</div>
+						<div class="words-bot">
+							<div type="button" class="btn btn-info" onclick="jump_1(1704)" >在线客服</div>
+							<div class="icons">
+								<span style="font-size: 14px !important;" >分享到:</span>
+								<svg class="icon" aria-hidden="true">
+			                        <use xlink:href="#icon-weixin"></use>
+			                    </svg>
+			                    <svg class="icon" aria-hidden="true">
+			                        <use xlink:href="#icon-icon_caiseqq"></use>
+			                    </svg>
+			                    <svg class="icon" aria-hidden="true">
+			                        <use xlink:href="#icon-weibo"></use>
+			                    </svg>
+			                    <svg class="icon" aria-hidden="true">
+			                        <use xlink:href="#icon-unie60d"></use>
+			                    </svg>
+			                    <svg style="font-size: 18px;"  class="icon" aria-hidden="true">
+			                        <use xlink:href="#icon-heart"></use>
+			                    </svg>
+			                    <span style="color: #169BD5;font-size: 18px;" >46</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--图片简介结束-->
+			<!--项目概要-->
+			<div class="road-show-outline hc-pl">
+				<div class="show-outline-tle">
+					项目概要
+				</div>
+				<div class="show-outline-left">
+				</div>
+				<div class="show-outline-right">
+					<div class="par-words">
+						污水处理一厂工程，设计规模为近期4.0万m3/d，远期8.0万m3/d。主要生产构筑物土建按近期规模4.0万m3/d建设，设备按2.0万m3/d规模安装。污水厂采用改良A/A/O工艺+高效澄清池+滤布滤池+消毒的处理工艺污水处理一厂工程，设计规模为近期4.0万m3/d，远期8.0万m3/d。主要生产构筑物土建按近期规模4.0万m3/d建设，设备按2.0万m3/d规模安装。污水厂采用改良A/A/O工艺+高效澄清池+滤布滤池+消毒的处理工艺污水处理一厂工程，设计规模为近期4.0万m3/d，远期8.0万m3/d。主要生产构筑物土建按近期规模4.0万m3/d建设，设备按2.0万m3/d规模安装。污水厂采用改良A/A/O工艺+高效澄清池+滤布滤池+消毒的处理工艺。
+					</div>
+			
+				</div>
+			</div>
+			<!--项目概要结束-->
+			<!--项目文件-->
+			<div class="road-show-file hc-pl">
+				<div class="show-file-tle" style="padding-top: 30px;overflow: hidden;" >
+					项目文件
+				</div>
+				<div class="file-items">
+					PPA协议：PPA.pdf
+					<a target="_blank" href="__PUBLIC__/pdf/1.pdf">
+					<svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhinenghuaxuanpinicon4"></use>
+                    </svg>
+                    </a>
+                    <a  href="{:U('index/downfile',array('filename'=>'1.pdf'))}">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                    </a>
+				</div>
+				<div class="file-items">水土保持方案:stbc.pdf
+					<a target="_blank" href="__PUBLIC__/pdf/1.pdf">
+					<svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhinenghuaxuanpinicon4"></use>
+                    </svg>
+					</a>
+					<a  href="{:U('index/downfile',array('filename'=>'1.pdf'))}">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                    </a>
+				</div>
+				<div class="file-items">项目开发协议:xmkfxy.pdf
+					<a target="_blank" href="__PUBLIC__/pdf/1.pdf">
+					<svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhinenghuaxuanpinicon4"></use>
+                    </svg>
+                    </a>
+                    <a  href="{:U('index/downfile',array('filename'=>'1.pdf'))}">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                    </a>
+				</div>
+				<div class="file-items">
+					开工许可:暂缺
+				</div>
+				<div class="file-items">
+					土地落实情况:tdlsqk.pdf
+					<a target="_blank" href="__PUBLIC__/pdf/1.pdf">
+					<svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhinenghuaxuanpinicon4"></use>
+                    </svg>
+                    </a>
+                    <a  href="{:U('index/downfile',array('filename'=>'1.pdf'))}">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                     </a>
+				</div>
+				<div class="file-items">
+					环评报告:hpbg.pdf
+					<a target="_blank" href="__PUBLIC__/pdf/1.pdf">
+					<svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-zhinenghuaxuanpinicon4"></use>
+                    </svg>
+                    </a>
+                    <a  href="{:U('index/downfile',array('filename'=>'1.pdf'))}"> 
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                    </a>
+				</div>
+				<div class="file-items">
+					材料供应合同:暂缺
+				</div>
+				<div class="file-items">
+					电网接入协议:暂缺
+				</div>
+				<div class="file-items">
+					初步勘察设计:cbkcsj.pdf
+					<a target="_blank" href="__PUBLIC__/pdf/1.pdf">
+					<svg class="icon" aria-hidden="true">	
+					<use xlink:href="#icon-zhinenghuaxuanpinicon4"></use>
+                    </svg>
+                    </a>
+                    <a  href="{:U('index/downfile',array('filename'=>'1.pdf'))}">  
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xiazai"></use>
+                    </svg>
+                    </a>
+				</div>
+				<div class="file-items">
+					可研报告:暂缺
+				</div>					
+			</div>
+			<!--项目文件结束-->
+		</div>		
+		<!--路演信息结束-->
+		<!--现场踏勘-->
+			<div class="road-show-scouting hc-pl" style="position: relative;" >
+				<div class="show-scouting-tle">
+					现场踏勘
+				</div>
+				<!--<div id="show" rel="autoPlay">
+				 <div class="img">
+
+		          <span class="index-pic-content" >
+		
+		              <a href=" " target="_blank"><img src="__PUBLIC__/images/luyan_detail_1.jpg" /></a>
+		
+		              <a href=" " target="_blank"><img src="__PUBLIC__/images/luyan_detail_2.jpg" /></a>
+		
+		              <a href=" " target="_blank"><img src="__PUBLIC__/images/luyan_detail_3.jpg" /></a>
+		
+		              <a href=" " target="_blank"><img src="__PUBLIC__/images/luyan_detail_4.jpg" /></a>
+		
+		              <a href=" " target="_blank"><img src="__PUBLIC__/images/luyan_detail_5.jpg" /></a>
+		
+		          </span>
+		
+		        <div class="masks mk1"></div>
+		        <div class="masks mk2"></div>
+		
+		      </div>
+		       </div>-->
+		       <!--<div style="height:450px;width: 940;margin: 0 auto;position: relative;">
+				<div id="featured"> 
+							<img src="__PUBLIC__/images/luyan_detail_1.jpg" />
+							<img src="__PUBLIC__/images/luyan_detail_2.jpg" data-caption="#htmlCaption" />
+							<img src="__PUBLIC__/images/luyan_detail_3.jpg"  />
+						</div>
+				</div>-->
+				 <div id="single-quad" class="carousel slide" data-ride="carousel" data-shift="1" style="width:90%;margin: 0 auto;" >
+				    <div class="carousel-inner"  >
+				      <ul class="row item active">
+				        <li class="col-xs-3 one">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=1" srcset="__PUBLIC__/images/kc1.jpg 1x, __PUBLIC__/images/kc1.jpg 2x" class="img-responsive" >
+				        </li>
+				        <li class="col-xs-3 two">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=2" srcset="__PUBLIC__/images/kc2.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=2 2x" class="img-responsive">
+				        </li>
+				        <li class="col-xs-3 three">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=3" srcset="__PUBLIC__/images/kc3.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=3 2x" class="img-responsive">
+				        </li>
+				        <li class="col-xs-3 four">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=4" srcset="__PUBLIC__/images/kc4.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=4 2x" class="img-responsive">
+				        </li>
+				      </ul>
+				      <ul class="row item">
+				        <li class="col-xs-3 five">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=5" srcset="__PUBLIC__/images/kc5.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=5 2x" class="img-responsive">
+				        </li>
+				        <li class="col-xs-3 six">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=6" srcset="__PUBLIC__/images/kc6.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=6 2x" class="img-responsive">
+				        </li>
+				        <li class="col-xs-3 seven">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=7" srcset="__PUBLIC__/images/kc7.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=7 2x" class="img-responsive">
+				        </li>
+				        <li class="col-xs-3 eight">
+				          <img src="http://placehold.it/200/c0666d/ffffff&text=8" srcset="__PUBLIC__/images/kc8.jpg 1x, http://placehold.it/400/c0666d/ffffff&text=8 2x" class="img-responsive">
+				        </li>
+				      </ul>
+				    </div>
+		
+				    <a class="carousel-control left" href="#single-quad" data-slide="prev">Previous</a>
+				    <a class="carousel-control right" href="#single-quad" data-slide="next">Next</a>
+				  </div>
+		  		  <div class="more-kc"  >
+		  		  		<a href="">查看更多</a>
+		  		  </div>
+			</div>
+			<!--现场踏勘结束-->
+			<div class="main-bot">
+				<!--在线答疑-->
+				<div class="road-show-answer" style="overflow: hidden;" >
+					<div class="show-outline-tle">
+						在线答疑
+					</div>
+					<div class="show-answer-left">
+						<span>嘉宾:财务总监-杨永安 独立董事-陈信勇 总经理-冀雄 董事长-卢震宇 董秘-陈志国</span>
+						<img src="__PUBLIC__/images/demo1.png"/>
+						<select class="form-control">
+							<option value="">选择提问嘉宾</option>
+							<option value="">卢震宇</option>
+						</select>
+						<input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+						<button class="btn btn-default" type="submit">提交</button>
+					</div>
+					<div class="show-answer-right">
+						<div class="answer-right-tle">
+							<svg class="icon" aria-hidden="true">
+		                        <use xlink:href="#icon-iconfontcollectep"></use>
+		                    </svg>
+							<span>关注</span>
+							<svg class="icon" aria-hidden="true">
+		                        <use xlink:href="#icon-plove"></use>
+		                    </svg>
+							<span>0</span>
+							<div>最新问题</div>
+						</div>
+						<div class="answer-right-content">
+							<a href="">公司的前5大客户是哪些?</a>
+							<a href="">公司预计后半年业绩较上半年同...</a>
+							<a href="">请问公司前半年营业的增收能超...</a>
+							<a href="">请问公司利润的增长率和营业收入...</a>
+							<a href="">公司的发展战略是什么,和公...</a>
+						</div>
+					</div>
+				</div>
+				<!--在线答疑结束-->
+				<!--项目专家团-->
+				<div class="road-show-expert hc-pl">
+
+					<div class="show-outline-tle">
+						项目专家团
+					</div>					
+					<div class="items">
+						<img src="__PUBLIC__/images/tou_1.jpg"/>
+						<span>戴哲富</span>
+						<div class="">
+							戴哲富，男，汉族，湖北省武汉人，中共党员，大专文化，高级工程师，中建一局集团华南区域公司经理。戴哲富于1970年参加工作，他一直保持...
+						</div>
+					</div>
+					<div class="items">
+						<img src="__PUBLIC__/images/tou_2.jpg"/>
+						<span>苗文怀</span>
+						<div class="">
+							苗文怀，1992年毕业于石家庄铁道学院起重运输与工程机械专业。参加工作以来，长期扎根施工一线从事设备管理和项目管理，解决了大量的施工...
+						</div>
+					</div>
+					<div class="items">
+						<img src="__PUBLIC__/images/tou_3.jpg"/>
+						<span>张晓葵 </span>
+						<div class="">
+							张晓葵，男，汉族，硕士研究生，中建一局华中建设有限公司常务副总经理。1988年毕业于华中理工大学，2000年毕业于哈尔滨工业大学管理学院...
+						</div>
+					</div>
+					<div class="items">
+						<img src="__PUBLIC__/images/tou_4.jpg"/>
+						<span>程永亮 </span>
+						<div class="">
+							程永亮（左），男，河南太康人，1978年10月2日出生，毕业于西南交通大学，机械设计专业，现任中国铁建重工集团副总经理，是中国铁建盾构...
+						</div>
+					</div>
+					<div class="items">
+						<img src="__PUBLIC__/images/tou_5.jpg"/>
+						<span>樊涛生 </span>
+						<div class="">
+							樊涛生，男，2013年11月任中建三局二公司总经理兼党委副书记。
+						</div>
+					</div>
+				</div>
+				<!--项目专家团结束-->
+				<!--相关路演-->
+				<div class="road-show-orders">
+					<div class="show-outline-tle">
+						相关路演
+					</div>					
+					<div class="orders-item">
+						<a href=""><img src="__PUBLIC__/images/luyan_detail_1.jpg"/></a>
+					</div>
+					<div class="orders-item">
+						<a href=""><img src="__PUBLIC__/images/luyan_detail_5.jpg"/></a>
+					</div>
+					<div class="orders-item">
+						<a href=""><img src="__PUBLIC__/images/luyan_detail_3.jpg"/></a>
+					</div>
+					<div class="orders-item">
+						<a href=""><img src="__PUBLIC__/images/luyan_detail_4.jpg"/></a>
+					</div>
+				</div>
+				<!--相关路演结束-->
+			</div>
+	</div>
+	<div class="page-footer">
+		Copyright © 2017-2017 www.epchance.com All Rights Reserved. 湘ICP备17005577号
+	</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	function jump_1(param) {
+         window.scrollTo(0,param);
+     }
+	//alert(document.documentElement.scrollTop);
+	
+</script>
